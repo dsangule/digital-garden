@@ -1,118 +1,130 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Hero from "@/components/Hero";
+import Post from "@/components/Post";
+import { getAllPosts } from "@/lib/posts-util";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Home(props) {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <Hero />
+      <div className='bg-lime-200'>
+        <div className="p-8">
+          {props.posts.map((post) => {
+            return <Post postData={post.content} />;
+          })}
         </div>
+        <h1 className="font-medium text-xl px-8 text-justify">
+          Aute consequat velit est dolor. Ipsum ex pariatur velit deserunt
+          fugiat nostrud eu incididunt sit non et. Commodo exercitation ipsum
+          labore velit cupidatat sint reprehenderit. Ex eu quis veniam sint sunt
+          aute mollit minim excepteur dolore dolor. Non ea aliquip laborum
+          officia qui aliqua. Dolore ex enim sunt sunt amet eu cupidatat sint
+          enim aliqua consectetur fugiat cupidatat. Dolore officia enim commodo
+          eu consequat quis ut ipsum deserunt laboris enim. Aute sunt minim
+          eiusmod proident cupidatat consequat reprehenderit ad. Minim proident
+          enim nulla in. Eu nisi do veniam consequat laboris. Veniam ex in
+          pariatur sit et sit nisi id sit velit id laboris. Incididunt nulla
+          anim aliquip velit veniam Lorem amet qui fugiat commodo et commodo
+          sit. Amet in fugiat elit proident ullamco. Sit anim quis ullamco
+          pariatur deserunt pariatur ullamco culpa labore qui est mollit laborum
+          nisi. Cillum minim culpa ex deserunt laborum. Qui ullamco excepteur
+          velit id laboris dolor reprehenderit sunt dolore. Quis consequat
+          incididunt reprehenderit Lorem magna consequat ad pariatur proident
+          pariatur velit. Ut ex non esse ipsum deserunt excepteur incididunt non
+          culpa do ipsum excepteur do. Lorem est sint adipisicing culpa id irure
+          adipisicing ut elit. Qui esse cillum sunt excepteur ipsum id. Esse
+          nisi nulla occaecat est duis ea occaecat elit minim nisi aute ut in
+          tempor. Lorem ex pariatur laboris deserunt. Reprehenderit veniam culpa
+          laboris ea. Incididunt cillum eu dolor pariatur qui qui cupidatat.
+          Enim laborum aute et excepteur. Tempor aute qui irure sit consequat
+          consectetur aliquip. Occaecat nisi Lorem sint voluptate eu ad
+          deserunt. Ipsum magna pariatur reprehenderit laboris cupidatat dolore.
+          Laborum eiusmod veniam dolore excepteur aliqua aliqua aute ea ullamco
+          eu. Sint aute et sit occaecat pariatur consectetur deserunt eiusmod
+          cupidatat. Commodo cillum occaecat eiusmod nulla ad. Labore consequat
+          eiusmod nostrud consequat veniam consequat mollit do ea. Nisi ex enim
+          commodo officia sunt in laboris non cillum. Anim esse pariatur enim
+          Lorem minim nisi. Amet in occaecat cillum fugiat voluptate in.
+          Consectetur sint duis laborum do. Aliquip non sunt nostrud anim tempor
+          tempor minim aliqua ad eiusmod aliquip. Eu qui veniam commodo
+          incididunt excepteur duis dolor culpa fugiat ea. Esse irure ullamco
+          duis cillum mollit cupidatat ad duis ad non. Excepteur laborum ut
+          ullamco proident adipisicing. Do eiusmod irure pariatur nisi
+          reprehenderit deserunt ut deserunt adipisicing Lorem. Adipisicing
+          labore ex voluptate id cillum velit ad sint elit magna. Ullamco eu
+          incididunt est tempor laborum sit eiusmod voluptate quis eiusmod irure
+          duis esse Lorem. Velit laboris tempor sint laboris enim. Deserunt
+          consequat nulla consequat eiusmod eu eiusmod elit nulla. Aliqua elit
+          sit Lorem ex nisi qui anim sint laborum nisi dolor ipsum aute. Quis
+          occaecat laboris sint dolor eiusmod nisi. Magna elit mollit
+          consectetur officia ex. Exercitation laborum nostrud ipsum sunt esse
+          dolore nulla exercitation ex mollit. Aute nisi sit tempor laboris in
+          cillum amet esse pariatur consequat minim. Excepteur adipisicing
+          consequat mollit aliquip aute pariatur in elit elit ullamco ullamco
+          sunt. In labore eu sunt nulla aute ex et adipisicing est labore.
+          Laboris ex consequat enim laborum. Labore aliquip fugiat adipisicing
+          do excepteur proident Lorem commodo veniam aute id elit ullamco
+          consequat. Aute consequat velit est dolor. Ipsum ex pariatur velit
+          deserunt fugiat nostrud eu incididunt sit non et. Commodo exercitation
+          ipsum labore velit cupidatat sint reprehenderit. Ex eu quis veniam
+          sint sunt aute mollit minim excepteur dolore dolor. Non ea aliquip
+          laborum officia qui aliqua. Dolore ex enim sunt sunt amet eu cupidatat
+          sint enim aliqua consectetur fugiat cupidatat. Dolore officia enim
+          commodo eu consequat quis ut ipsum deserunt laboris enim. Aute sunt
+          minim eiusmod proident cupidatat consequat reprehenderit ad. Minim
+          proident enim nulla in. Eu nisi do veniam consequat laboris. Veniam ex
+          in pariatur sit et sit nisi id sit velit id laboris. Incididunt nulla
+          anim aliquip velit veniam Lorem amet qui fugiat commodo et commodo
+          sit. Amet in fugiat elit proident ullamco. Sit anim quis ullamco
+          pariatur deserunt pariatur ullamco culpa labore qui est mollit laborum
+          nisi. Cillum minim culpa ex deserunt laborum. Qui ullamco excepteur
+          velit id laboris dolor reprehenderit sunt dolore. Quis consequat
+          incididunt reprehenderit Lorem magna consequat ad pariatur proident
+          pariatur velit. Ut ex non esse ipsum deserunt excepteur incididunt non
+          culpa do ipsum excepteur do. Lorem est sint adipisicing culpa id irure
+          adipisicing ut elit. Qui esse cillum sunt excepteur ipsum id. Esse
+          nisi nulla occaecat est duis ea occaecat elit minim nisi aute ut in
+          tempor. Lorem ex pariatur laboris deserunt. Reprehenderit veniam culpa
+          laboris ea. Incididunt cillum eu dolor pariatur qui qui cupidatat.
+          Enim laborum aute et excepteur. Tempor aute qui irure sit consequat
+          consectetur aliquip. Occaecat nisi Lorem sint voluptate eu ad
+          deserunt. Ipsum magna pariatur reprehenderit laboris cupidatat dolore.
+          Laborum eiusmod veniam dolore excepteur aliqua aliqua aute ea ullamco
+          eu. Sint aute et sit occaecat pariatur consectetur deserunt eiusmod
+          cupidatat. Commodo cillum occaecat eiusmod nulla ad. Labore consequat
+          eiusmod nostrud consequat veniam consequat mollit do ea. Nisi ex enim
+          commodo officia sunt in laboris non cillum. Anim esse pariatur enim
+          Lorem minim nisi. Amet in occaecat cillum fugiat voluptate in.
+          Consectetur sint duis laborum do. Aliquip non sunt nostrud anim tempor
+          tempor minim aliqua ad eiusmod aliquip. Eu qui veniam commodo
+          incididunt excepteur duis dolor culpa fugiat ea. Esse irure ullamco
+          duis cillum mollit cupidatat ad duis ad non. Excepteur laborum ut
+          ullamco proident adipisicing. Do eiusmod irure pariatur nisi
+          reprehenderit deserunt ut deserunt adipisicing Lorem. Adipisicing
+          labore ex voluptate id cillum velit ad sint elit magna. Ullamco eu
+          incididunt est tempor laborum sit eiusmod voluptate quis eiusmod irure
+          duis esse Lorem. Velit laboris tempor sint laboris enim. Deserunt
+          consequat nulla consequat eiusmod eu eiusmod elit nulla. Aliqua elit
+          sit Lorem ex nisi qui anim sint laborum nisi dolor ipsum aute. Quis
+          occaecat laboris sint dolor eiusmod nisi. Magna elit mollit
+          consectetur officia ex. Exercitation laborum nostrud ipsum sunt esse
+          dolore nulla exercitation ex mollit. Aute nisi sit tempor laboris in
+          cillum amet esse pariatur consequat minim. Excepteur adipisicing
+          consequat mollit aliquip aute pariatur in elit elit ullamco ullamco
+          sunt. In labore eu sunt nulla aute ex et adipisicing est labore.
+          Laboris ex consequat enim laborum. Labore aliquip fugiat adipisicing
+          do excepteur proident Lorem commodo veniam aute id elit ullamco
+          consequat.
+        </h1>
       </div>
+    </div>
+  );
+}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+export function getStaticProps() {
+  const allPosts = getAllPosts();
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
 }
