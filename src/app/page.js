@@ -3,13 +3,15 @@ import Post from "@/components/Post";
 import { getAllPosts } from "@/lib/posts-util";
 
 export default function Home(props) {
+  const allPosts = getAllPosts();
+
   return (
     <div>
       <Hero />
       <div className='bg-lime-200'>
         <div className="p-8">
-          {props.posts.map((post) => {
-            return <Post postData={post.content} />;
+          {allPosts.map((post, index) => {
+            return <Post key={index} postData={post.content} />;
           })}
         </div>
         <h1 className="font-medium text-xl px-8 text-justify">
@@ -118,13 +120,4 @@ export default function Home(props) {
       </div>
     </div>
   );
-}
-
-export function getStaticProps() {
-  const allPosts = getAllPosts();
-  return {
-    props: {
-      posts: allPosts,
-    },
-  };
 }

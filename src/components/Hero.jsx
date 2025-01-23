@@ -1,3 +1,4 @@
+"use client"
 import Header from './Header'
 import { Modal, Button } from 'antd';
 import React, { useState } from 'react';
